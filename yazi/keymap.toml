@@ -1,0 +1,6 @@
+[[manager.prepend_keymap]]
+on   = "F"
+run  = '''
+  shell 'file=$(fd --type f --hidden --exclude .git | fzf --preview "head -50 {}"); [ -n "$file" ] && ya emit reveal "$file"' --block
+'''
+desc = "Fuzzy find and reveal file"
