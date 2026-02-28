@@ -30,3 +30,9 @@ map("v", ">", ">gv")
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
+-- Lazygit
+map("n", "<leader>gg", function()
+    vim.cmd("tabnew term://lazygit")
+    vim.cmd("startinsert")
+end, { desc = "Lazygit" })
