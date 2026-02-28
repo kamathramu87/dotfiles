@@ -2,7 +2,7 @@
 set -e
 
 echo "Installing tools..."
-brew install neovim tmux yazi ripgrep fd fzf
+brew install neovim tmux yazi ripgrep fd fzf lazygit
 pip install pynvim ruff black debugpy
 npm install -g pyright
 
