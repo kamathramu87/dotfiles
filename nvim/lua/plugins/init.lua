@@ -19,6 +19,7 @@ require("lazy").setup({
     require("plugins.linting"),
     require("plugins.dap"),
     require("plugins.extras"),
+    require("plugins.toggleterm"),
 }, {
     install = { colorscheme = { "catppuccin" } },
     checker = { enabled = true, notify = false },
