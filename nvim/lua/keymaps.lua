@@ -31,6 +31,9 @@ map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 
+-- Git
+map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Git branches" })
+
 -- Lazygit
 map("n", "<leader>gg", function()
     vim.cmd("tabnew term://lazygit")
