@@ -12,6 +12,7 @@ return {
             { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
             { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Help tags" },
             { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
+            { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "Git branches" },
         },
         config = function()
             local telescope = require("telescope")
