@@ -20,6 +20,7 @@ require("lazy").setup({
     require("plugins.dap"),
     require("plugins.extras"),
     require("plugins.toggleterm"),
+    require("plugins.venv-selector"),
 }, {
     install = { colorscheme = { "catppuccin" } },
     checker = { enabled = true, notify = false },
