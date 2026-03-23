@@ -19,7 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""  # Using powerlevel10k via direct source below
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -120,10 +120,7 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
-
-### Fix for making Docker plugin work
-autoload -U compinit && compinit
-###
+autoload -U +X bashcompinit && bashcompinit
 
 zstyle ':completion:*:*:docker:*' option-stacking yes
 
@@ -145,8 +142,11 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-autoload -U +X bashcompinit && bashcompinit
 source /opt/homebrew/etc/bash_completion.d/az
+
+# fzf key bindings and completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)" 2>/dev/null || true
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
