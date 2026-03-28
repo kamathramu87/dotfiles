@@ -14,6 +14,7 @@ ln -sf "$(pwd)/tmux.conf" ~/.tmux.conf
 ln -sf "$(pwd)/yazi" ~/.config/yazi
 ln -sf "$(pwd)/zshrc" ~/.zshrc
 ln -sf "$(pwd)/p10k.zsh" ~/.p10k.zsh
+ln -sf "$(pwd)/k8s-fzf.sh" ~/dotfiles/k8s-fzf.sh
 
 echo "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
