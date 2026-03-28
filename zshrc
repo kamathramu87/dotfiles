@@ -116,6 +116,9 @@ alias ghcs='gh copilot suggest'
 
 # Kubernetes fzf helpers
 [ -f ~/dotfiles/k8s-fzf.sh ] && source ~/dotfiles/k8s-fzf.sh
+
+# Git fzf helpers
+[ -f ~/dotfiles/git-fzf.sh ] && source ~/dotfiles/git-fzf.sh
 alias dots='cd ~/dotfiles && git add . && git commit -m "update dotfiles" && git push && cd -'
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
