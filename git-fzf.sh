@@ -1,11 +1,18 @@
 #!/bin/zsh
 # Git fuzzy search helpers using fzf
 
-# Fuzzy checkout branch
+# Fuzzy checkout branch (local + remote)
 gfco() {
-    local branch
-    branch=$(git branch -a | sed 's/remotes\/origin\///' | sort -u | fzf --prompt="Checkout branch > ")
-    [ -n "$branch" ] && git checkout "$(echo "$branch" | tr -d '* ')"
+    local branch target
+    branch=$(git branch -a | sed 's|remotes/origin/||' | sed 's|^\* ||' | sort -u | grep -v HEAD | fzf --prompt="Checkout branch > ")
+    [ -z "$branch" ] && return
+    branch=$(echo "$branch" | tr -d ' ')
+    # If branch exists locally, just checkout; otherwise track from remote
+    if git branch --list "$branch" | grep -q "$branch"; then
+        git checkout "$branch"
+    else
+        git checkout -b "$branch" "origin/$branch"
+    fi
 }
 
 # Fuzzy delete local branch
