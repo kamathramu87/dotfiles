@@ -15,6 +15,11 @@ ln -sf "$(pwd)/yazi" ~/.config/yazi
 ln -sf "$(pwd)/zshrc" ~/.zshrc
 ln -sf "$(pwd)/p10k.zsh" ~/.p10k.zsh
 
+echo "Installing oh-my-zsh..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
 echo "Installing powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k 2>/dev/null || true
 
