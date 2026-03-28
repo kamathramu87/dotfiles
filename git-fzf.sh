@@ -16,14 +16,14 @@ gfbd() {
 }
 
 # Fuzzy add files
-gfa() {
+gfadd() {
     local files
     files=$(git status -s | fzf -m --prompt="Stage files > " | awk '{print $2}')
     [ -n "$files" ] && echo "$files" | xargs git add && git status -s
 }
 
 # Fuzzy restore (unstage/discard)
-gfr() {
+gfres() {
     local files
     files=$(git status -s | fzf -m --prompt="Restore files > " | awk '{print $2}')
     [ -n "$files" ] && echo "$files" | xargs git restore
@@ -70,8 +70,8 @@ gfhelp() {
     echo "Git fzf helpers:"
     echo "  gfco   — fuzzy checkout branch"
     echo "  gfbd   — fuzzy delete branch"
-    echo "  gfa    — fuzzy stage files"
-    echo "  gfr    — fuzzy restore files"
+    echo "  gfadd  — fuzzy stage files"
+    echo "  gfres  — fuzzy restore files"
     echo "  gfshow — fuzzy browse commits"
     echo "  gfcp   — fuzzy cherry-pick commit"
     echo "  gfsta  — fuzzy stash apply"
